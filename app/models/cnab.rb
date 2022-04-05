@@ -16,4 +16,6 @@
 #
 class Cnab < ApplicationRecord
   enum cnab_type: Cnabs::Types::TYPES
+
+  validates :cnab_type, :date, :cnab_value, :cpf, :card, :hour, :store_name, :store_owner, presence: true
 end

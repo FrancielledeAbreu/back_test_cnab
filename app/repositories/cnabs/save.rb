@@ -1,26 +1,32 @@
 module Cnabs
   class Save 
+    attr_reader :error_message
+
     def initialize(cnab_data:)
       @cnab_data = cnab_data
+      @error_message = ''
     end
 
     def cnab_data_save!
-      ActiveRecord::Base.transaction do
-        @cnab_data.map do |cnab|
-          cnab = Cnab.new(
-            cnab_type: insert_type(cnab[:type]),
-            date: cnab[:date],
-            cnab_value: cnab[:value],
-            cpf: cnab[:cpf],
-            card: cnab[:card],
-            hour: cnab[:hour],
-            store_name: cnab[:store_name],
-            store_owner: cnab[:store_owner]
-          )
+    ActiveRecord::Base.transaction do
+      @cnab_data.map do |cnab|
+        cnab = Cnab.new(
+          cnab_type: insert_type(cnab[:type]),
+          date: cnab[:date],
+          cnab_value: cnab[:value],
+          cpf: cnab[:cpf],
+          card: cnab[:card],
+          hour: cnab[:hour],
+          store_name: cnab[:store_name],
+          store_owner: cnab[:store_owner]
+        )
 
-          cnab if cnab.save!
-        end
+        cnab if cnab.save!
       end
+    end
+    rescue ActiveRecord::RecordInvalid => e
+      @error_message = e.message
+      false
     end
 
     private
