@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: cnabs
+#
+#  id          :bigint           not null, primary key
+#  card        :string
+#  cpf         :string
+#  date        :datetime
+#  hour        :datetime
+#  store_name  :string
+#  store_owner :string
+#  type        :integer
+#  value       :decimal(, )
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  type: 1
+  date: 2022-04-01 18:51:45
+  value: 9.99
+  cpf: MyString
+  card: MyString
+  hour: 2022-04-01 18:51:45
+  store_owner: MyString
+  store_name: MyString
+
+two:
+  type: 1
+  date: 2022-04-01 18:51:45
+  value: 9.99
+  cpf: MyString
+  card: MyString
+  hour: 2022-04-01 18:51:45
+  store_owner: MyString
+  store_name: MyString
