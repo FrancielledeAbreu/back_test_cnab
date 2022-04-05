@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_01_175145) do
+ActiveRecord::Schema.define(version: 2022_04_05_153854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cnabs", force: :cascade do |t|
-    t.integer "type"
+    t.integer "cnab_type"
     t.datetime "date"
-    t.decimal "value"
+    t.decimal "cnab_value"
     t.string "cpf"
     t.string "card"
     t.datetime "hour"
