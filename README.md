@@ -1,24 +1,47 @@
-# README
+# CNAB API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Setup:
 
-Things you may want to cover:
+- Ruby 3.0.0
 
-* Ruby version
+in desafio-dev/cnab_api please run:
 
-* System dependencies
+```
+bundle install
 
-* Configuration
+rails s -p 3001
 
-* Database creation
+```
 
-* Database initialization
+### Requests:
 
-* How to run the test suite
+### List all Cnabs
 
-* Services (job queues, cache servers, search engines, etc.)
+- GET : base_url/cnabs, status 201
 
-* Deployment instructions
+```
+[
+	{
+		"id": 1,
+		"cnab_type": "financiamento",
+		"date": "1970-08-22T16:25:01.000Z",
+		"cnab_value": "142.0",
+		"cpf": "09620676017",
+		"card": "4753****3153",
+		"hour": "1970-01-02T18:37:33.000Z",
+		"store_owner": "JOÃO MACEDO   ",
+		"store_name": "BAR DO JOÃO       \n",
+		"created_at": "2022-04-05T15:44:06.698Z",
+		"updated_at": "2022-04-05T15:44:06.698Z"
+	},...
+]
+```
 
-* ...
+### Create new Cnabs
+
+- Post : base_url/cnabs , status 201
+  headers: Content-Type : multipart/form-data
+
+```
+{"message":"Cnab salvo com sucesso"}
+```
