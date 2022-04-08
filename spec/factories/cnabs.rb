@@ -14,23 +14,15 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-
-one:
-  type: 1
-  date: 2022-04-01 18:51:45
-  value: 9.99
-  cpf: MyString
-  card: MyString
-  hour: 2022-04-01 18:51:45
-  store_owner: MyString
-  store_name: MyString
-
-two:
-  type: 1
-  date: 2022-04-01 18:51:45
-  value: 9.99
-  cpf: MyString
-  card: MyString
-  hour: 2022-04-01 18:51:45
-  store_owner: MyString
-  store_name: MyString
+FactoryBot.define do
+  factory :cnab do
+    card  { "4753****3153" }
+    cnab_type  { 1 }
+    cnab_value  { 100 }
+    cpf  { "00837379154" }
+    date  { "2021-08-22 16:25:01.000" }
+    hour  { "2021-01-02 18:37:33.000" }
+    store_name  { "LOJA JOÃO MACEDO" }
+    store_owner  { "JOÃO MACEDO" }
+  end
+end
