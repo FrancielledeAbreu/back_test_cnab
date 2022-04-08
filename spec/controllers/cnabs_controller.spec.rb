@@ -1,6 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe CnabsController, type: :controller do
+
+  describe "#index cnabs" do
+    let!(:cnab_file_list) {create_list(:cnab, 8)}
+
+    it 'renders all cnabs' do
+      get :index
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'must have 8 cnabs created' do
+      cnabs = Cnab.all.count
+      expect(cnabs).to eq(8)
+    end
+  end
+
   describe "#create cnabs" do
     let(:cnab_file) do
       path = File.join(Rails.root, 'spec', 'cnabs_fake.txt')

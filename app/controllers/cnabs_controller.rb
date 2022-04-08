@@ -1,4 +1,15 @@
 class CnabsController < ApplicationController
+
+  def index
+    @cnabs = Cnab.all
+
+    if @cnabs
+      (render json: @cnabs)
+    else
+      (render json: { message: 'Cnabs não encontrados' }, status: 404)
+    end
+  end
+
   def create
     @cnab_data ||= parse
     if saver.cnab_data_save!
